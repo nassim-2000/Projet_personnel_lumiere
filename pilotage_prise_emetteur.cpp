@@ -21,8 +21,11 @@ void setup() {
 
 void loop() {
 /*pilotage du de la prise télécommandée à l'aide de l'envoi du signal*/
-  mySwitch.send( 5510485, 24);    //envoi trame du signal prise --> ON
-  delay(2000);
-  mySwitch.send( 5510657, 24);    //envoi trame du signal prise --> OFF
-  delay(2000);
+  if(gpio==1){
+    mySwitch.send( 5510485, 24);    //envoi trame du signal prise --> ON
+    delay(2000);
+  }else if(gpio==0){
+    mySwitch.send( 5510657, 24);    //envoi trame du signal prise --> OFF
+    delay(2000);
+  }
 }
